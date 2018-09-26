@@ -91,9 +91,46 @@ void ClueReasoner::AddInitialClauses()
 	
 	// If a card is in one place, it cannot be in another place.
 	// TO BE IMPLEMENTED AS AN EXERCISE
+	for (int c = 0; c < num_cards; c++)	// Iterate over all cards.
+	{
+		for (int p = 0; p <= num_players; p++) {	// Iterate over all players, including the case file (as a possible place for a card).
+			for (int px = 0; px <= num_players; px++) {	// Iterate over all players, including the case file (as a possible place for a card).
+				if(p!=px) {
+					Clause clause;
+					clause.push_back(GetPairNum(p,c) * (-1)); // add -Cp OR -Cpx
+					clause.push_back(GetPairNum(px,c) * (-1));
+					solver->AddClause(clause);
+				}
+			}
+		}
+	}
 	
 	// At least one card of each category is in the case file.
 	// TO BE IMPLEMENTED AS AN EXERCISE
+	int cf = num_players; // set case file to the number of players p=cf
+	// setting ranges for categories of cards in cards array
+	int sus_start = 0;
+	int sus_end = num_suspects;
+	int wea_start = sus_end;
+	int wea_end = wea_start + num_weapons;
+	int roo_start = wea_end;
+	int roo_end = roo_start + num_rooms;
+
+	for(int sus_c = sus_start; sus_c < sus_end; sus_c++) { // Iterate over suspect cards
+		Clause clause;
+		clause.push_back(GetPairNum(cf,sus_c));
+		solver->AddClause(clause);
+	}
+	for(int wea_c = wea_start; wea_c < wea_end; wea_c++) { // Iterate over weapon cards
+		Clause clause;
+		clause.push_back(GetPairNum(cf,wea_c));
+		solver->AddClause(clause);
+	}
+	for(int roo_c = roo_start; roo_c < roo_end; roo_c++) { // Iterate over room cards
+		Clause clause;
+		clause.push_back(GetPairNum(cf,roo_c));
+		solver->AddClause(clause);
+	}
 
 	// No two cards in each category can both be in the case file.
 	// TO BE IMPLEMENTED AS AN EXERCISE
