@@ -195,8 +195,14 @@ void ClueReasoner::Suggest(string suggester, string card1, string card2, string 
 	
 	// TO BE IMPLEMENTED AS AN EXERCISE
 	// your turn and someone refutes
-	int suggester_num = GetPlayerNum(suggester);
-	int refuter_num = GetPlayerNum(refuter);
+	int suggester_num;
+	if(suggester != "") {
+		suggester_num = GetPlayerNum(suggester);
+	} 
+	int refuter_num;
+	if(refuter != "") {
+		refuter_num = GetPlayerNum(refuter);
+	} 
 
 	if(refuter != "" && card_shown != "") {
 		int tracker = suggester_num;
@@ -273,13 +279,13 @@ void ClueReasoner::Suggest(string suggester, string card1, string card2, string 
 		solver->AddClause(clause);
 
 		clause.clear();
-		clause.push_back(GetPairNum(suggester, card1));
-		clause.push_back(GetPairNum(case_file, card1));
+		clause.push_back(GetPairNum(suggester, card2));
+		clause.push_back(GetPairNum(case_file, card2));
 		solver->AddClause(clause);
 		
 		clause.clear();
-		clause.push_back(GetPairNum(suggester, card1));
-		clause.push_back(GetPairNum(case_file, card1));
+		clause.push_back(GetPairNum(suggester, card3));
+		clause.push_back(GetPairNum(case_file, card3));
 		solver->AddClause(clause);
 	}
 }
