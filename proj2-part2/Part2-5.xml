@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Untitled</NAME>
+<PROPERTY>detailed = </PROPERTY>
+<PROPERTY>short = </PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>Warriors Win</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7478.0, 5351.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Curry good game</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7177.0, 5256.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Durant good game</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7330.0, 5258.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Klay good game</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7490.0, 5259.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Curry injured</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<OBS>F</OBS>
+	<PROPERTY>position = (7168.0, 5156.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Durant injured</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<OBS>F</OBS>
+	<PROPERTY>position = (7330.0, 5150.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Klay injured</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<OBS>F</OBS>
+	<PROPERTY>position = (7473.0, 5159.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Draymond good game</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7634.0, 5250.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Draymond injured</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<OBS>F</OBS>
+	<PROPERTY>position = (7629.0, 5159.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Bench plays well</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7701.0, 5329.0)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>Warriors Win</FOR>
+	<GIVEN>Curry good game</GIVEN>
+	<GIVEN>Durant good game</GIVEN>
+	<GIVEN>Klay good game</GIVEN>
+	<GIVEN>Draymond good game</GIVEN>
+	<GIVEN>Bench plays well</GIVEN>
+	<TABLE>1.0 0.0 0.95 0.05 0.9 0.1 0.85 0.15 0.9 0.1 0.85 0.15 0.8 0.2 0.75 0.25 0.85 0.15 0.8 0.2 0.75 0.25 0.7 0.3 0.7 0.3 0.65 0.35 0.65 0.35 0.6 0.4 0.9 0.1 0.85 0.15 0.8 0.2 0.75 0.25 0.8 0.2 0.75 0.25 0.7 0.3 0.65 0.35 0.75 0.25 0.7 0.3 0.65 0.35 0.6 0.4 0.6 0.4 0.55 0.45 0.55 0.45 0.5 0.5</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Curry good game</FOR>
+	<GIVEN>Curry injured</GIVEN>
+	<TABLE>0.0 1.0 0.7 0.3</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Durant good game</FOR>
+	<GIVEN>Durant injured</GIVEN>
+	<TABLE>0.0 1.0 0.8 0.2</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Klay good game</FOR>
+	<GIVEN>Klay injured</GIVEN>
+	<TABLE>0.0 1.0 0.4 0.6</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Curry injured</FOR>
+	<TABLE>0.15 0.85</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Durant injured</FOR>
+	<TABLE>0.1 0.9</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Klay injured</FOR>
+	<TABLE>0.05 0.95</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Draymond good game</FOR>
+	<GIVEN>Draymond injured</GIVEN>
+	<TABLE>0.0 1.0 0.5 0.5</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Draymond injured</FOR>
+	<TABLE>0.1 0.9</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Bench plays well</FOR>
+	<TABLE>0.4 0.6</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>
