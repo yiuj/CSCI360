@@ -2,8 +2,13 @@
 #define GRID_PATH_PLANNER_H
 
 #include "PartiallyKnownGrid.h"
+#include <iostream> 
+#include <queue> 
+#include <set>
+#include <vector>
+#include <map>
 
-
+using namespace std;
 
 class GridPathPlanner{
 public:
@@ -30,24 +35,40 @@ public:
 				loc = _loc;
 				g = INT_MAX;
 				h = 0;
-				prev = NULL;
+				prev = nullptr;
+			}
+			gridNode(int x, int y) {
+				loc = xyLoc(x,y);
+				g = INT_MAX;
+				h = 0;
+				prev = nullptr;
 			}
 			int g, h;
 			xyLoc loc;
-			gridNode prev;
+			gridNode* prev;
+
+			bool operator<(gridNode const& other) const {
+				int f1 = this->g + this->h;
+				int f2 = other.g + other.h;
+
+				if(f1 == f2) {
+					return (this->g > other.g);
+				}
+				return (f1 > f2);
+			}
 	};
 
 	struct CompareSmallG
 	{
-		bool operator() (gridNode gn1, gridNode gn2)
+		bool operator() (gridNode const& gn1, gridNode const& gn2)
 		{
 			int f1 = gn1.g + gn1.h;
 			int f2 = gn2.g + gn2.h;
 
 			if(f1 == f2) {
-				return (gn1.g > gn2.g);
+				return (gn1.g < gn2.g);
 			}
-			return (f1 > f2);
+			return (f1 < f2);
 		}
 	};
 		
@@ -59,7 +80,8 @@ private:
 									// If set to false, your search should tie-break towards smaller g-values.
 
 	int expansions;
-	gridNode **map;
+	map<xyLoc, gridNode*> nodeMap;
+	// gridNode **nodeMap;
 };
 
 #endif
