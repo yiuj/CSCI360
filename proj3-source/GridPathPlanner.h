@@ -57,20 +57,6 @@ public:
 				return (f1 > f2);
 			}
 	};
-
-	struct CompareSmallG
-	{
-		bool operator() (gridNode const& gn1, gridNode const& gn2)
-		{
-			int f1 = gn1.g + gn1.h;
-			int f2 = gn2.g + gn2.h;
-
-			if(f1 == f2) {
-				return (gn1.g < gn2.g);
-			}
-			return (f1 < f2);
-		}
-	};
 		
 private:
 	PartiallyKnownGrid* grid;	// Partially known grid (updates automatically as the agent moves.
@@ -81,7 +67,8 @@ private:
 
 	int expansions;
 	map<xyLoc, gridNode*> nodeMap;
-	// gridNode **nodeMap;
+	int gSGoal;
+	bool firstRun;
 };
 
 #endif

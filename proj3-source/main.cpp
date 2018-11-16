@@ -10,7 +10,7 @@ int main() {
 	PartiallyKnownGrid grid("map");
 	
 	Simulation sim (&grid);
-	sim.SetStepsPerSecond(5);
+	sim.SetStepsPerSecond(20);
 	sim.SetConfirmationAfterEachMove(false);
 	
 	bool adaptive = false;
